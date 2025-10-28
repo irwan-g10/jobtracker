@@ -3,6 +3,11 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Job;
+use App\Models\JobPosition;
+use App\Models\JobResource;
+use App\Models\JobStatus;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,11 +17,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        // Buat data master dulu
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+    // Buat data referensi dulu
+        JobPosition::factory(5)->create();
+        JobStatus::factory(2)->create();
+        JobResource::factory(4)->create();
+
+        // Baru buat data job, karena tabel di atas sudah ada datanya
+        Job::factory(10)->create();
+
+
     }
 }

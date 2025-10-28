@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\JobController;
+use App\Http\Controllers\JobPositionController;
+use App\Http\Controllers\JobResourceController;
+use App\Http\Controllers\JobStatusController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +18,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('dashboard');
+// });
+
+Route::get('/', [HomeController::class, 'dashboard']);
+
+Route::resource('jobs', JobController::class);
+Route::resource('job-positions', JobPositionController::class);
+Route::resource('job-resources', JobResourceController::class);
+Route::resource('job-statuses', JobStatusController::class);
