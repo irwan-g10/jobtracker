@@ -62,11 +62,18 @@ class JobController extends Controller
             'province' => 'required|string|max:100',
             'postal_code' => 'required|string|max:20',
             'note' => 'nullable|string',
-            'job_position_id' => 'required|exists:job_positions,id',
+            'job_position_title' => 'required|string|max:255',
+            // 'job_position_id' => 'required|exists:job_positions,id',
             'job_resource_id' => 'required|exists:job_resources,id',
         ]);
 
+
+        $jobPosition = JobPosition::firstOrCreate(
+            ['position_title' => $data['job_position_title']],
+            ['position_title' => $data['job_position_title']]
+        );
         $data['job_status_id'] = 1;
+        $data['job_position_id'] = $jobPosition->id;
 
         Job::create($data);
 

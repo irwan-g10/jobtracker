@@ -56,7 +56,12 @@
                                     placeholder="Enter Postal Code">
                             </div>
                             <div class="form-group">
-                                <label>Position</label>
+                                <label for="inputPostalCode">Position</label>
+                                <input type="text" class="form-control" name="job_position_title" id="inputPostalCode"
+                                    placeholder="Enter Postal Code">
+                            </div>
+                            {{-- <div class="form-group">
+                                <label>Select Available Position</label>
                                 <select class="form-control select2bs4" name="job_position_id" style="width: 100%;">
                                     <option selected="selected">Select Position</option>
                                     @foreach ($jobPositions as $jobPosition)
@@ -66,7 +71,7 @@
                                     @endforeach
                                 </select>
 
-                            </div>
+                            </div> --}}
                             <div class="form-group">
                                 <label>Resource</label>
                                 <select class="form-control select2bs4" name="job_resource_id" style="width: 100%;">
